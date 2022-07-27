@@ -1,7 +1,7 @@
 package com.guo.sharding.service.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
-import com.guo.sharding.dao.TestMapper;
+import com.guo.sharding.mapper.TestMapper;
 import com.guo.sharding.entity.Test;
 import com.guo.sharding.service.TestService;
 import lombok.extern.slf4j.Slf4j;

@@ -80,5 +80,18 @@ spring:
           username: root
           password: Root123!
 mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delFlag  #全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  type-enums-package: com.guo.sharding.entity
   configuration:
+    cache-enabled: false
+    default-executor-type: reuse
+    jdbc-type-for-null: 'null'
+    lazy-loading-enabled: true
+    local-cache-scope: session
     map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler   # EnumTypeHandler 配置为它时不能识别默认GenderEnum
+  mapper-locations: classpath:mapper/*Mapper.xml

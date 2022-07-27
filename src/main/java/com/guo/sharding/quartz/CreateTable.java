@@ -22,12 +22,11 @@ public class CreateTable {
     @Value(value = "${spring.datasource.dynamic.datasource.master.password}")
     private String password;
 
-    @Scheduled(cron = "0 */1 * * * ?")
+    //@Scheduled(cron = "0 */1 * * * ?")
     public void init() throws SQLException, ClassNotFoundException{
         Date date = new Date();
         String year = String.format("%tY", date);
         String mon = String.format("%tm",date);
-        System.out.println("开始执行新建数据库了"+url+"  "+userName+"  "+password);
         //连接数据库
         Class.forName(driver);
         //测试url中是否包含useSSL字段，没有则添加设该字段且禁用
@@ -46,7 +45,6 @@ public class CreateTable {
         ResultSet rs = conn.getMetaData().getTables(null, null, tableName, null);
         // 判断表是否存在，如果存在则什么都不做，否则创建表
         if( rs.next() ){
-            System.out.println("数据库已存在");
             return;
         }
         else{

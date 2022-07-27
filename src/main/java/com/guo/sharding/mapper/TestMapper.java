@@ -1,4 +1,4 @@
-package com.guo.sharding.dao;
+package com.guo.sharding.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.guo.sharding.entity.Test;
