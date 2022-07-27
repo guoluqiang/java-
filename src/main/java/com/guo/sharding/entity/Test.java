@@ -4,12 +4,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName("test")
+@TableName("file_test")
 public class Test {
     private int id;
-    private String fieId;
-    private String value;
-    private String error;
+    private String fileName;
     private String createTime;
     private String updateTime;
 }
