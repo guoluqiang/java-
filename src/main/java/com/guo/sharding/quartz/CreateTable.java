@@ -5,22 +5,21 @@ import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
-import java.util.Calendar;
 import java.util.Date;
 
 @Repository
 public class CreateTable {
 
-    @Value(value = "${task.driver-class-name}")
+    @Value(value = "${spring.datasource.dynamic.datasource.master.driver-class-name}")
     private String driver;
 
-    @Value(value = "${task.url}")
+    @Value(value = "${spring.datasource.dynamic.datasource.master.url}")
     private String url;
 
-    @Value(value = "${task.username}")
+    @Value(value = "${spring.datasource.dynamic.datasource.master.username}")
     private String userName;
 
-    @Value(value = "${task.password}")
+    @Value(value = "${spring.datasource.dynamic.datasource.master.password}")
     private String password;
 
     @Scheduled(cron = "0 */1 * * * ?")
