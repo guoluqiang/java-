@@ -10,7 +10,7 @@ import java.util.List;
 @Component
 @Mapper
 public interface DemoMapper {
-    void saveDemo(@Param("name") String name);
+    void addDemo(@Param("name") String name);
 
     List<Demo> getDemo();
 }

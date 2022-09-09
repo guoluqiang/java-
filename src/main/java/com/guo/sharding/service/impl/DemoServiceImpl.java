@@ -1,6 +1,5 @@
 package com.guo.sharding.service.impl;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.guo.sharding.entity.Demo;
 import com.guo.sharding.mapper.DemoMapper;
 import com.guo.sharding.service.DemoService;
@@ -18,19 +17,16 @@ public class DemoServiceImpl implements DemoService {
     private DemoMapper demoMapper;
 
     @Override
-    @DS("master")
     public void saveDemo() {
-        demoMapper.saveDemo("demo");
+        demoMapper.addDemo("demo");
     }
 
     @Override
-    @DS("slave1")
     public List<Demo> queryDemo1() {
         return demoMapper.getDemo();
     }
 
     @Override
-    @DS("slave2")
     public List<Demo> queryDemo2() {
         return demoMapper.getDemo();
     }
