@@ -19,9 +19,9 @@ spring:
       ds0: #配置主库的数据源信息
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://192.168.135.129:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://192.168.135.128:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
         username: root
-        password: Root123!
+        password: 123456
     sharding:
       tables:
         file_test:
@@ -81,15 +81,15 @@ spring:
         # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
         connection-properties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
       datasource:
+        # 多数据源配置
         master:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://192.168.135.129:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://192.168.135.128:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
           username: root
           password: Root123!
-        # 多数据源配置
-        multi-datasource1:
+        slave1:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://192.168.135.129:3306/demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://192.168.135.130:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
           username: root
           password: Root123!
 
